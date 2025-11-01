@@ -3,3 +3,180 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&display=swap');
 /* font-family: "Noto Sans KR", sans-serif; */
 /* font-family: "Noto Serif KR", serif; */
+
+:root {
+    --color-text: #382107;
+    --color-white: #f3f3f3;
+    --color-black: #222222;
+    --color-point: #66aca8;
+    --color-point-text: #278782;
+
+    --font-main: "Noto Serif KR", serif;
+    --font-sub: "Noto Sans KR";
+
+    --h1-size: 45px;
+    --h1-weight: 700;
+    --h1-line: 100px;
+
+    --body1-size: 22px;
+    --body1-weight: 600;
+    --body1-line: 48px;
+
+    /* 모바일용 */
+    --h1-size-m: 24px;
+    --h1-line-m: 42px;
+
+    --body1-size-m: 16px;
+    --body1-line-m: 30px;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+}
+
+h2 {
+    font-size: var(--h1-size);
+    font-weight: var(--h1-weight);
+    line-height: var(--h1-line);
+}
+
+p {
+    font-size: var(--body1-size);
+    font-weight: var(--body1-weight);
+    line-height: var(--body1-line);
+}
+
+/* 이벤트 배너 ############# */
+.event-banner {
+    width: 100%;
+    height: 40px;
+    background-color: #fff;
+    color: var(--color-black);
+    font-family: var(--font-sub);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    z-index: 100;
+}
+
+.event-banner strong {
+    color: #E21818;
+}
+
+.event-banner .banner-text {
+    display: flex;
+    flex-direction: column;
+    animation: bannerUp 10s linear infinite;
+}
+
+@keyframes bannerUp {
+
+    0%,
+    30% {
+        transform: translateY(0);
+    }
+
+    35%,
+    65% {
+        transform: translateY(-40px);
+    }
+
+    70%,
+    95% {
+        transform: translateY(-80px);
+    }
+
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* 헤더 ############# */
+.header .mobile {
+    display: none;
+}
+
+.header {
+    font-family: var(--font-sub);
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+}
+
+.header.scrolled {
+    position: fixed;
+    top: 30px;
+}
+
+.nav.pc {
+    width: 604px;
+    height: 50px;
+    background-color: rgba(243, 243, 243, 0.8);
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav.pc .gnb {
+    display: flex;
+    gap: 25px;
+}
+
+.nav.pc .gnb>li {
+    position: relative;
+}
+
+.nav.pc .gnb>li .depth-01 {
+    height: 50px;
+    line-height: 50px;
+    display: block;
+    padding: 0 8px;
+    transition: all 0.3s ease;
+}
+
+.nav.pc .gnb>li .depth-01:hover {
+    font-weight: 700;
+}
+
+.nav.pc .gnb>li .depth-01.active {
+    font-weight: 700;
+}
+
+.nav.pc .gnb>li .depth-02 {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 8px 5px 15px;
+    background-color: rgba(243, 243, 243, 0.8);
+    border-radius: 0 0 20px 20px;
+    display: none;
+    /* 안보이게 */
+}
+
+.nav.pc .gnb>li .depth-02 li a {
+    display: block;
+    font-size: 15px;
+    padding: 4px;
+    transition: all 0.3s ease;
+    margin-bottom: 8px;
+}
+
+.nav.pc .gnb>li .depth-02 li:last-child a {
+    margin-bottom: 0;
+}
+
+.nav.pc .gnb>li .depth-02 li a:hover {
+    color: var(--color-point-text);
+}

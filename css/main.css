@@ -1,3 +1,122 @@
 @charset "utf-8";
 @import url('reset.css');
 @import url('common.css');
+
+
+/* 메인 비주얼 ############# */
+.main_visual {
+    width: 100%;
+    height: calc(100vh - 40px);
+}
+
+.main_visual .swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.main_visual .swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.main_visual .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 메인섹션 너비 ############# */
+.main_section .inner {
+    width: 88.54%;
+    margin: 0 auto;
+}
+
+/* 섹션1 ############# */
+#section1 {
+    margin-top: 250px;
+    position: relative;
+}
+
+#section1 img {
+    width: 100%;
+    display: block;
+}
+
+#section1 .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#section1 .inner .main_content {
+    width: 42.35%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+}
+
+#section1 .inner .main_content h2 {}
+
+#section1 .inner .main_content .main_text {}
+
+#section1 .inner .main_content .main_text p {}
+
+#section1 .inner .main_content .main_text strong {}
+
+#section1 .inner .main_content .main_text .main_btn {}
+
+#section1 .inner .main_content .main_text .main_btn button {}
+
+#section1 .inner .main_content .main_text .main_btn button img {}
+
+#section1 .inner .main_content .main_text .main_btn button p {}
+
+/* 모바일 숨김 */
+#section1 .inner .review_list.mobile {
+    display: none;
+}
+
+#section1 .inner .review_list {
+    width: 50.82%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#section1 .inner .review_list .review {
+    width: 720px;
+    position: relative;
+    font-family: var(--font-sub);
+    color: var(--color-black);
+}
+
+#section1 .inner .review_list .review p {
+    font-weight: 400;
+}
+
+#section1 .inner .review_list .review:nth-child(even) {
+    margin-left: auto;
+}
+
+#section1 .inner .review_list .review img {
+    width: 100%;
+    display: block;
+}
+
+#section1 .inner .review_list .review:nth-child(even) img {
+    transform: scaleX(-1);
+}
+
+#section1 .inner .review_list .review p {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}

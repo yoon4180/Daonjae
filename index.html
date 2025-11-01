@@ -23,12 +23,227 @@
     <script>
         window.onload = () => {
             AOS.init();
+
+            //헤더 스크롤 시 고정 위치
+            $(window).on('scroll', function () {
+                if ($(this).scrollTop() > 40) {
+                    $('.header').addClass('scrolled');
+                } else {
+                    $('.header').removeClass('scrolled');
+                }
+            });
+
+            //헤더 2차 메뉴
+            $('.depth-01').on('click', function () {
+                if ($(this).siblings('.depth-02').css('display') == 'none') {
+                    $('.depth-01').siblings('.depth-02').slideUp();
+                    $('.depth-01').removeClass('active');
+
+                    $(this).siblings('.depth-02').slideDown();
+                    $(this).addClass('active');
+                } else {
+                    $(this).siblings('.depth-02').slideUp();
+                    $(this).removeClass('active');
+                }
+            });
+
+            //메인 비주얼 슬라이드
+            var swiper = new Swiper(".main_img", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                effect: "fade",
+            });
         }
     </script>
 </head>
 
 <body>
+    <div id="wrap">
+        <div class="event-banner">
+            <div class="banner-text">
+                <p>⛄ ❄ 11月~2月 겨울화보 <strong>마감 임박</strong> ❄ ⛄</p>
+                <p>⏰ 💌 파워 J 부모님을 위한 <strong>얼리버드 특별 혜택</strong> 💌 ⏰</p>
+                <p>🔥 🎁 역대급 할인이 기다리는 <strong>여름 화보 예약</strong> 🎁 🔥 </p>
+            </div><!-- banner-text -->
+        </div><!-- event-banner -->
 
+        <header class="header">
+            <nav class="nav pc">
+                <ul class="gnb">
+                    <li>
+                        <a href="#" class="depth-01">잔치예약</a>
+                        <ul class="depth-02">
+                            <li><a href="#">한옥 돌잔치</a></li>
+                            <li><a href="#">환갑/고희연</a></li>
+                        </ul><!-- dpeth-02 -->
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">스냅예약</a>
+                        <ul class="depth-02">
+                            <li><a href="#">돌 한복스냅</a></li>
+                            <li><a href="#">웨딩 한복스냅</a></li>
+                            <li><a href="#">북촌집 갤러리</a></li>
+                            <li><a href="#">삼청동집 갤러리</a></li>
+                        </ul><!-- dpeth-02 -->
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">공지|이벤트</a>
+                        <ul class="depth-02">
+                            <li><a href="#">얼리버드 할인</a></li>
+                            <li><a href="#">여름 촬영 안내</a></li>
+                            <li><a href="#">겨울 촬영 안내</a></li>
+                        </ul><!-- dpeth-02 -->
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">예약안내</a>
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">리뷰</a>
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">위치</a>
+                    </li>
+                </ul>
+            </nav><!-- nav pc -->
+
+            <button class="menu_btn mobile">
+                <img src="img/icon_menu.png" alt="메뉴열기">
+            </button><!-- menu_btn mobile -->
+            <nav class="nav mobile">
+                <button class="close_btn">
+                    <img src="img/icon_close.png" alt="메뉴닫기">
+                </button><!-- close_btn -->
+                <ul class="gnb">
+                    <li>
+                        <a href="#" class="depth-01">잔치예약</a>
+                        <ul class="depth-02">
+                            <li><a href="#">한옥 돌잔치</a></li>
+                            <li><a href="#">환갑/고희연</a></li>
+                        </ul><!-- dpeth-02 -->
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">스냅예약</a>
+                        <ul class="depth-02">
+                            <li><a href="#">돌 한복스냅</a></li>
+                            <li><a href="#">웨딩 한복스냅</a></li>
+                            <li><a href="#">북촌집 갤러리</a></li>
+                            <li><a href="#">삼청동집 갤러리</a></li>
+                        </ul><!-- dpeth-02 -->
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">공지|이벤트</a>
+                        <ul class="depth-02">
+                            <li><a href="#">얼리버드 할인</a></li>
+                            <li><a href="#">여름 촬영 안내</a></li>
+                            <li><a href="#">겨울 촬영 안내</a></li>
+                        </ul><!-- dpeth-02 -->
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">예약안내</a>
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">리뷰</a>
+                    </li>
+                    <li>
+                        <a href="#" class="depth-01">위치</a>
+                    </li>
+                </ul>
+            </nav><!-- nav mobile -->
+        </header><!-- header -->
+
+        <main class="main">
+            <section class="main_visual">
+                <!-- 메인 비주얼 슬라이드 -->
+                <div class="swiper main_img">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="img/main1.jpg" alt="메인비주얼 이미지 1">
+                        </div><!-- swiper-slide end -->
+                        <div class="swiper-slide">
+                            <img src="img/main2.jpg" alt="메인비주얼 이미지 2">
+                        </div><!-- swiper-slide end -->
+                        <div class="swiper-slide">
+                            <img src="img/main3.jpg" alt="메인비주얼 이미지 3">
+                        </div><!-- swiper-slide end -->
+                    </div><!-- swiper-wrapper -->
+                </div><!-- swiper .main_img -->
+            </section><!-- main_visual -->
+
+            <section class="main_section" id="section1">
+                <img src="img/section1_bg.png" alt="섹션1 배경">
+                <div class="inner">
+                    <div class="main_content">
+                        <h2>당신의 가장 아름다운 순간,</br>
+                            “다온재”가 완성합니다.</h2>
+                        <div class="main_text">
+                            <p>아름다운 순간을 기록하길 원하신다면</br>
+                                정답은 <strong>다온재</strong> 입니다.</br>
+                                그날의 기억을 아름다운 한복과 함께 담아보세요.</br>
+                                시간은 흘러도, 사진은 남습니다.</p>
+                            <div class="main_btn">
+                                <button class="kakaotalk">
+                                    <img src="img/icon_kakao_main.png" alt="카톡 아이콘">
+                                    <p>카톡 문의</p>
+                                </button><!-- kakaotalk -->
+                                <button class="call">
+                                    <img src="img/icon_call_main.png" alt="전화 아이콘">
+                                    <p>전화 문의</p>
+                                </button>
+                            </div><!-- main_btn -->
+                        </div><!-- main_text -->
+                    </div><!-- main_content -->
+
+                    <div class="review_list pc">
+                        <div class="review">
+                            <img src="img/text_box.png" alt="말풍선 이미지 pc">
+                            <p>첫째 때 너무 예뻐서, 둘째 때도 망설임 없이 다시 다온재로 왔어요.👶</p>
+                        </div><!-- review -->
+                        <div class="review">
+                            <img src="img/text_box.png" alt="말풍선 이미지 pc">
+                            <p>사진 속 한복 색감이 진짜 다온재밖에 못 내는 느낌이에요.🖤</p>
+                        </div><!-- review -->
+                        <div class="review">
+                            <img src="img/text_box.png" alt="말풍선 이미지 pc">
+                            <p>결과물 보고 친구들이 다 물어봤어요. 또 오고 싶은 스튜디오예요.✨</p>
+                        </div><!-- review -->
+                        <div class="review">
+                            <img src="img/text_box.png" alt="말풍선 이미지 pc">
+                            <p>요즘 핫한 한복 스냅 스팟 다 찾아봤는데, 다온재가 최고였어요.👍</p>
+                        </div><!-- review -->
+                    </div><!-- review_list pc -->
+
+                    <div class="review_list mobile">
+                        <div class="review">
+                            <img src="img/m_textbox.png" alt="말풍선 이미지 mobile">
+                            <p>첫째 때 너무 예뻐서, 둘째 때도</br>망설임 없이 다시 다온재로 왔어요.👶</p>
+                        </div><!-- review -->
+                        <div class="review">
+                            <img src="img/m_textbox.png" alt="말풍선 이미지 mobile">
+                            <p>사진 속 한복 색감이 진짜</br>다온재밖에 못 내는 느낌이에요.🖤</p>
+                        </div><!-- review -->
+                        <div class="review">
+                            <img src="img/m_textbox.png" alt="말풍선 이미지 mobile">
+                            <p>결과물 보고 친구들이 다 물어봤어요.</br>또 오고 싶은 스튜디오예요.✨</p>
+                        </div><!-- review -->
+                        <div class="review">
+                            <img src="img/m_textbox.png" alt="말풍선 이미지 mobile">
+                            <p>요즘 핫한 한복 스냅 스팟 다 찾아봤는데,</br>다온재가 최고였어요.👍</p>
+                        </div><!-- review -->
+                    </div><!-- review_list mobile -->
+                </div><!-- inner -->
+            </section><!-- #section1 -->
+
+
+        </main><!-- main -->
+    </div><!-- #wrap -->
 </body>
 
 </html>
