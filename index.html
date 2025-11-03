@@ -20,6 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- AOS js -->
     <script src="lib/aos.js"></script>
+
     <script>
         window.onload = () => {
             AOS.init();
@@ -60,6 +61,82 @@
                     clickable: true,
                 },
                 effect: "fade",
+            });
+
+            //섹션2 스티키
+            let $section = $('#section2');
+            let $imgs = $section.find('.image_wrap .img');
+            let $points = $section.find('.point');
+
+            let sectionTop = $section.offset().top;
+            let sectionHeight = $section.outerHeight();
+            let winH = $(window).height();
+
+            $(window).on('scroll', function () {
+                let scrollTop = $(window).scrollTop();
+                let scrollPos = scrollTop - sectionTop;
+
+                if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
+                    // 전체 진행 비율 (0~1)
+                    let progress = scrollPos / (sectionHeight - winH);
+
+                    // 포인트 개수 (3개)
+                    let totalPoints = $points.length;
+                    let sectionPerPoint = 1 / totalPoints; // 1/3씩 차지
+
+                    // 현재 포인트 인덱스
+                    let pointIndex = Math.floor(progress / sectionPerPoint);
+                    if (pointIndex >= totalPoints) pointIndex = totalPoints - 1;
+
+                    // 각 포인트 내에서 세부 진행도 (0~1)
+                    let localProgress = (progress - sectionPerPoint * pointIndex) / sectionPerPoint;
+                    if (localProgress < 0) localProgress = 0;
+                    if (localProgress > 1) localProgress = 1;
+
+                    // 포인트 전환
+                    $points.removeClass('on');
+                    $points.eq(pointIndex).addClass('on');
+
+                    // 이미지 전환 (각 포인트마다 2장)
+                    let imgStart = pointIndex * 2; // 예: point1→0, point2→2, point3→4
+                    let currentImg = imgStart + (localProgress < 0.5 ? 0 : 1); // 절반 지점 기준으로 1,2 전환
+                    if (currentImg >= $imgs.length) currentImg = $imgs.length - 1;
+
+                    $imgs.removeClass('on');
+                    $imgs.eq(currentImg).addClass('on');
+                }
+            });
+
+            //섹션3 비디오
+            const videoContainer = document.querySelector("#section3 .video_container");
+            const section = document.querySelector("#section3");
+
+            window.addEventListener("scroll", () => {
+                const rect = section.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // section이 화면에 보일 때만 계산
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    // progress 0 ~ 1
+                    let progress = 1 - (rect.bottom / (rect.height + windowHeight));
+                    // scale 1 ~ 1.5
+                    let scale = 1 + progress * 0.5;
+                    videoContainer.style.transform = `scale(${scale})`;
+                }
+            });
+
+
+            // 섹션 1 가로스크롤
+            let section01Top = document.querySelector('#section5').offsetTop;
+            console.log(section01Top)
+            window.addEventListener('scroll', () => {
+                let transformX = -1 / 15 * window.scrollY + section01Top / 15
+
+                if (transformX < -200) {
+                    document.querySelector('.scrollX').style.transform = `translateX(-200vw)`
+                } else if (transformX < 0) {
+                    document.querySelector('.scrollX').style.transform = `translateX(${transformX}vw)`
+                }
             });
         }
     </script>
@@ -159,6 +236,7 @@
             </nav><!-- nav mobile -->
         </header><!-- header -->
 
+
         <main class="main">
             <section class="main_visual">
                 <!-- 메인 비주얼 슬라이드 -->
@@ -180,7 +258,7 @@
             <section class="main_section" id="section1">
                 <img src="img/section1_bg.png" alt="섹션1 배경">
                 <div class="inner">
-                    <div class="main_content">
+                    <div class="main_content" data-aos="fade-up" data-aos-duration="1000">
                         <h2>당신의 가장 아름다운 순간,</br>
                             “다온재”가 완성합니다.</h2>
                         <div class="main_text">
@@ -202,19 +280,19 @@
                     </div><!-- main_content -->
 
                     <div class="review_list pc">
-                        <div class="review">
+                        <div class="review" data-aos="fade-up-right" data-aos-offset="50" data-aos-delay="0">
                             <img src="img/text_box.png" alt="말풍선 이미지 pc">
                             <p>첫째 때 너무 예뻐서, 둘째 때도 망설임 없이 다시 다온재로 왔어요.👶</p>
                         </div><!-- review -->
-                        <div class="review">
+                        <div class="review" data-aos="fade-up-left" data-aos-offset="50" data-aos-delay="0">
                             <img src="img/text_box.png" alt="말풍선 이미지 pc">
                             <p>사진 속 한복 색감이 진짜 다온재밖에 못 내는 느낌이에요.🖤</p>
                         </div><!-- review -->
-                        <div class="review">
+                        <div class="review" data-aos="fade-up-right" data-aos-offset="50" data-aos-delay="0">
                             <img src="img/text_box.png" alt="말풍선 이미지 pc">
                             <p>결과물 보고 친구들이 다 물어봤어요. 또 오고 싶은 스튜디오예요.✨</p>
                         </div><!-- review -->
-                        <div class="review">
+                        <div class="review" data-aos="fade-up-left" data-aos-offset="50" data-aos-delay="0">
                             <img src="img/text_box.png" alt="말풍선 이미지 pc">
                             <p>요즘 핫한 한복 스냅 스팟 다 찾아봤는데, 다온재가 최고였어요.👍</p>
                         </div><!-- review -->
@@ -241,8 +319,164 @@
                 </div><!-- inner -->
             </section><!-- #section1 -->
 
+            <section class="main_section" id="section2">
+                <div class="container">
+                    <div class="image_wrap">
+                        <div class="img img1 on"><img src="img/img1-1.png" alt="포인트 이미지"></div>
+                        <div class="img img2"><img src="img/img1-2.png" alt="포인트 이미지"></div>
+                        <div class="img img3"><img src="img/img2-1.jpg" alt="포인트 이미지"></div>
+                        <div class="img img4"><img src="img/img2-2.jpg" alt="포인트 이미지"></div>
+                        <div class="img img5"><img src="img/img3-1.jpg" alt="포인트 이미지"></div>
+                        <div class="img img6"><img src="img/main2.jpg" alt="포인트 이미지"></div>
+                    </div><!-- image_wrap -->
 
+                    <div class="list">
+                        <!-- <div class="title" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="line"></div>
+                            <h3>“다온재”를 하는 이유</h3>
+                        </div> 수정 필요 -->
+
+                        <div class="point point1 on">
+                            <img src="img/flower1.png" alt="포인트 배경 일러" class="bg_deco p1">
+                            <div class="text_wrap">
+                                <strong>POINT 01</strong>
+                                <div class="text">
+                                    <h2>100% 실크 전통 한복</h2>
+                                    <p>100% 실크로 빚어낸 고급스러움.</br>
+                                        오뜨꾸뛰르 전공의 한복 디자이너와</br>
+                                        30년 경력의 장인이 함께합니다.</br>
+                                        당신의 순간을 가장 품격 있게 완성합니다.</p>
+                                </div><!-- text -->
+                            </div><!-- text_wrap -->
+                        </div><!-- point -->
+                        <div class="point point2">
+                            <img src="img/flower2.png" alt="포인트 배경 일러" class="bg_deco p2">
+                            <div class="text_wrap">
+                                <strong>POINT 02</strong>
+                                <div class="text">
+                                    <h2>기술과 감성의 조화</h2>
+                                    <p>22년 경력의 대표 포토그래퍼가 이끄는</br>
+                                        감각적인 여성 작가 팀.</br>
+                                        기술력 위에 감성을 더하고,</br>
+                                        서비스 위에 진심을 더합니다.</br>
+                                        빛과 감정이 머무는 한 장, 다온재의 사진.</p>
+                                </div><!-- text -->
+                            </div><!-- text_wrap -->
+                        </div><!-- point -->
+                        <div class="point point3">
+                            <img src="img/flower3.png" alt="포인트 배경 일러" class="bg_deco p3">
+                            <div class="text_wrap">
+                                <strong>POINT 03</strong>
+                                <div class="text">
+                                    <h2>한옥 그리고 북촌</h2>
+                                    <p>100년의 시간이 켜켜이 쌓인 북촌 한옥마을.</br>
+                                        진짜 한옥의 아름다움을 품은 공간.</br>
+                                        그 중심에 다온재가 있습니다.</br>
+                                        재현이 불가능한 분위기를 담습니다.</p>
+                                </div><!-- text -->
+                            </div><!-- text_wrap -->
+                        </div><!-- point -->
+                    </div><!-- list -->
+
+                </div><!-- container -->
+            </section><!-- #section2 -->
+
+            <section class="main_section" id="section3">
+                <div class="bg_img"></div>
+                <div class="video_wrap">
+                    <div class="text_wrap">
+                        <h2 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0">다온재의 올곧은 방향성</h2>
+                        <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">다온재의 한복 사진은 ‘전통’이라는 이름
+                            아래,</br>
+                            정의할 수 없는 아름다움과 그 영감의 본질을 끊임없이 탐구합니다.</br>
+                            과거에서 현재로 이어지는 시간의 결,</br>
+                            그 고유한 흐름 위에서 다온재는</br>
+                            한복 사진이 나아가야 할 길을 묵직하게 이어갑니다.</p>
+                    </div><!-- text_wrap -->
+                    <div class="video_container">
+                        <iframe src="https://www.youtube.com/embed/T5rF0OOakQk?si=mJL4W1ViKZZM2aq7"
+                            title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media"
+                            allowfullscreen></iframe>
+                    </div><!-- video_container -->
+                </div><!-- video_wrap -->
+            </section><!-- #section3 -->
+
+            <section class="main_section" id="section4">
+                <div class="inner">
+                    <div class="text_wrap" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="1000">
+                        <img src="img/title_bg.png" alt="제목 배경">
+                        <div class="title_wrap">
+                            <div class="title">
+                                <h2>환갑잔치, 고희연 준비</br>
+                                    돌잔치도 모두 한번에 해결</h2>
+                                <span>준비할 건 많은데 바쁘시죠, 다온재에게 맡기세요.</span>
+                            </div><!-- title -->
+                            <p>장소+한복+사진+헤어메이크업+</br>
+                                동영상+돌상·잔칫상&포토테이블+식사</br>
+                                모든 걸 한 번에 해결하세요.</p>
+                        </div><!-- title_wrap -->
+                    </div><!-- text_wrap -->
+                    <img src="img/img_wrap.png" alt="이미지 모음" class="img_wrap" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200"
+                        data-aos-duration="1000">
+                </div><!-- inner -->
+            </section><!-- #section4 -->
+
+            <section class="main_section1" id="section5">
+                <div class="inner">
+                    <div class="title_wrap" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+                        <h2>전통 한옥에서 즐기는 프라이빗 연회.</h2>
+                        <p> 6~12인 규모의 품격 있는 공간에서</br>
+                            인생의 중요한 순간을 다온재와 함께하세요.</p>
+                    </div><!-- title_wrap -->
+
+                    <!-- 가로 슬라이드 -->
+                    <div class="scrollX pc" style="transform: translateX(-9.8vw);">
+                        <div class="img-wrap">
+                            <div class="img">
+                                <div class="img-label">
+                                    <strong>1번방</strong>
+                                    <p>10명 추천 (최대 12명)</p>
+                                </div><!-- img-label -->
+                                <img src="img/room1.jpg" alt="룸 1">
+                            </div>
+
+                            <div class="img">
+                                <div class="img-label">
+                                    <strong>2번방</strong>
+                                    <p>8명 추천 (최대 8명)</p>
+                                </div><!-- img-label -->
+                                <img src="img/room2.jpg" alt="룸 2">
+                            </div>
+
+                            <div class="img">
+                                <div class="img-label">
+                                    <strong>3번방</strong>
+                                    <p>최대 6명</p>
+                                </div><!-- img-label -->
+                                <img src="img/room3.jpg" alt="룸 3">
+                            </div>
+
+                            <div class="img">
+                                <div class="img-label">
+                                    <strong>별채</strong>
+                                    <p>최대 6명</p>
+                                </div><!-- img-label -->
+                                <img src="img/room4.jpg" alt="별채">
+                            </div>
+                        </div>
+                    </div><!-- scrollX -->
+                </div><!-- inner -->
+            </section><!-- #section5 -->
+
+            <section class="main_section" id="section6">
+                
+            </section><!-- #section6 -->
         </main><!-- main -->
+
+
+        <footer class="footer">
+
+        </footer><!-- footer -->
     </div><!-- #wrap -->
 </body>
 

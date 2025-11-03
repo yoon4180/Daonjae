@@ -54,9 +54,6 @@ p {
     background-color: #fff;
     color: var(--color-black);
     font-family: var(--font-sub);
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 40px;
     text-align: center;
     overflow: hidden;
     position: relative;
@@ -64,14 +61,21 @@ p {
     z-index: 100;
 }
 
-.event-banner strong {
-    color: #E21818;
-}
-
 .event-banner .banner-text {
     display: flex;
     flex-direction: column;
     animation: bannerUp 10s linear infinite;
+}
+
+.event-banner .banner-text p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.event-banner .banner-text strong {
+    color: #E21818;
+    font-weight: 700;
 }
 
 @keyframes bannerUp {
@@ -116,6 +120,24 @@ p {
     position: fixed;
     top: 30px;
 }
+
+/* .logo {
+    height: 50px;
+    position: relative;
+    top: 70px;
+    left: 0;
+    z-index: 999;
+}
+
+.logo a {
+    display: block;
+    height: 100%;
+}
+
+.logo a img {
+    display: block;
+    height: 100%;
+} */
 
 .nav.pc {
     width: 604px;
