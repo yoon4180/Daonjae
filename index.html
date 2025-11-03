@@ -144,6 +144,27 @@
                 effect: "cards",
                 grabCursor: true,
             });
+
+            //섹션6 아이콘 호버
+            $('.ask_btn.call').hover(
+                function () {
+                    $(this).find('img').attr('src', 'img/icon_call_main.png');
+                },
+                function () {
+                    $(this).find('img').attr('src', 'img/icon_call_white.png');
+                }
+            );
+
+            // 카카오 버튼
+            $('.ask_btn.kakao').hover(
+                function () {
+                    $(this).find('img').attr('src', 'img/icon_kakao_main.png');
+                },
+                function () {
+                    $(this).find('img').attr('src', 'img/icon_kakao_white.png');
+                }
+            );
+
         }
     </script>
 </head>
@@ -409,7 +430,7 @@
 
             <section class="main_section" id="section4">
                 <div class="inner">
-                    <div class="text_wrap" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="1000">
+                    <div class="text_wrap" data-aos="fade-right" data-aos-duration="800" data-aos-delay="800">
                         <img src="img/title_bg.png" alt="제목 배경">
                         <div class="title_wrap">
                             <div class="title">
@@ -422,8 +443,8 @@
                                 모든 걸 한 번에 해결하세요.</p>
                         </div><!-- title_wrap -->
                     </div><!-- text_wrap -->
-                    <img src="img/img_wrap.png" alt="이미지 모음" class="img_wrap" data-aos="fade-up" data-aos-duration="800"
-                        data-aos-delay="200" data-aos-duration="1000">
+                    <img src="img/img_wrap.png" alt="이미지 모음" class="img_wrap" data-aos="fade-up" data-aos-duration="400"
+                        data-aos-delay="200" data-aos-duration="600">
                 </div><!-- inner -->
             </section><!-- #section4 -->
 
@@ -476,10 +497,11 @@
 
             <section class="main_section" id="section6">
                 <div class="inner">
-                    <div class="location">
+                    <div class="location" data-aos="fade-right" data-aos-duration="800" data-aos-delay="200">
                         <p>· 오시는 길</p>
                         <!-- 1. 약도 노드 -->
-                        <div id="daumRoughmapContainer1762155835928" class="root_daum_roughmap root_daum_roughmap_landing">
+                        <div id="daumRoughmapContainer1762155835928"
+                            class="root_daum_roughmap root_daum_roughmap_landing">
                         </div>
                         <!-- 2. 설치 스크립트 -->
                         <script charset="UTF-8" class="daum_roughmap_loader_script"
@@ -489,13 +511,14 @@
                             new daum.roughmap.Lander({
                                 "timestamp": "1762155835928",
                                 "key": "bjckycbidqk",
-                                "mapWidth": "836",
-                                "mapHeight": "681"
+                                "mapWidth": "650",
+                                "mapHeight": "600"
                             }).render();
                         </script>
                     </div><!-- location -->
 
-                    <div class="ask">
+                    <div class="ask" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400"
+                        data-aos-duration="1000">
                         <div class="card">
                             <img src="img/slide_txt1.png" alt="텍스트" class="text-1">
                             <img src="img/slide_txt2.png" alt="텍스트" class="text-2">
