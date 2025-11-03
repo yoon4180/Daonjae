@@ -126,7 +126,7 @@
             });
 
 
-            // 섹션 1 가로스크롤
+            // 섹션5 가로스크롤
             let section01Top = document.querySelector('#section5').offsetTop;
             console.log(section01Top)
             window.addEventListener('scroll', () => {
@@ -137,6 +137,12 @@
                 } else if (transformX < 0) {
                     document.querySelector('.scrollX').style.transform = `translateX(${transformX}vw)`
                 }
+            });
+
+            //섹션6 카드 슬라이드
+            var swiper = new Swiper(".card_album", {
+                effect: "cards",
+                grabCursor: true,
             });
         }
     </script>
@@ -416,8 +422,8 @@
                                 모든 걸 한 번에 해결하세요.</p>
                         </div><!-- title_wrap -->
                     </div><!-- text_wrap -->
-                    <img src="img/img_wrap.png" alt="이미지 모음" class="img_wrap" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200"
-                        data-aos-duration="1000">
+                    <img src="img/img_wrap.png" alt="이미지 모음" class="img_wrap" data-aos="fade-up" data-aos-duration="800"
+                        data-aos-delay="200" data-aos-duration="1000">
                 </div><!-- inner -->
             </section><!-- #section4 -->
 
@@ -469,7 +475,78 @@
             </section><!-- #section5 -->
 
             <section class="main_section" id="section6">
-                
+                <div class="inner">
+                    <div class="location">
+                        <p>· 오시는 길</p>
+                        <!-- 1. 약도 노드 -->
+                        <div id="daumRoughmapContainer1762155835928" class="root_daum_roughmap root_daum_roughmap_landing">
+                        </div>
+                        <!-- 2. 설치 스크립트 -->
+                        <script charset="UTF-8" class="daum_roughmap_loader_script"
+                            src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+                        <!-- 3. 실행 스크립트 -->
+                        <script charset="UTF-8">
+                            new daum.roughmap.Lander({
+                                "timestamp": "1762155835928",
+                                "key": "bjckycbidqk",
+                                "mapWidth": "836",
+                                "mapHeight": "681"
+                            }).render();
+                        </script>
+                    </div><!-- location -->
+
+                    <div class="ask">
+                        <div class="card">
+                            <img src="img/slide_txt1.png" alt="텍스트" class="text-1">
+                            <img src="img/slide_txt2.png" alt="텍스트" class="text-2">
+                            <div class="swiper card_album">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="img/card1.jpg" alt="카드 이미지">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/card2.jpg" alt="카드 이미지">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/card3.jpg" alt="카드 이미지">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img src="img/main2.jpg" alt="카드 이미지">
+                                    </div>
+                                </div><!-- swiper-wrapper -->
+                            </div><!-- card_album -->
+                        </div><!-- card -->
+
+                        <div class="btn_wrap">
+                            <div class="ask_btn call">
+                                <div class="way">
+                                    <div class="method">
+                                        <h4>전화</h4>
+                                        <strong>010-3786-5942</strong>
+                                    </div><!-- method -->
+                                    <img src="img/icon_call_white.png" alt="전화 아이콘">
+                                </div><!-- way -->
+                                <p><b>100% 예약제</b></br>
+                                    <b>빠른 상담</b>은 전화 주세요.</br>
+                                    <b>매일 10시~15시</b>
+                                </p>
+                            </div><!-- ask_btn.call -->
+                            <div class="ask_btn kakao">
+                                <div class="way">
+                                    <div class="method">
+                                        <h4>카카오톡</h4>
+                                        <strong>ID : daonjae</strong>
+                                    </div><!-- method -->
+                                    <img src="img/icon_kakao_white.png" alt="카톡 아이콘">
+                                </div><!-- way -->
+                                <p><b>상담 시간</b> 외 또는 <b>해외 거주자</b> 분들은</br>
+                                    <b>카카오톡</b> 문의 남겨주시면</br>
+                                    <b>문자</b> 또는 <b>전화</b>로 답변드립니다.
+                                </p>
+                            </div><!-- ask_btn.kakao -->
+                        </div><!-- btn_wrap -->
+                    </div><!-- ask -->
+                </div><!-- inner -->
             </section><!-- #section6 -->
         </main><!-- main -->
 

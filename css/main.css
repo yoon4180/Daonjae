@@ -97,7 +97,7 @@
 #section1 .inner .main_content .main_text .main_btn button p {
     font-size: 22px;
     font-weight: 500;
-    line-height: auto;
+    line-height: 100%;
 }
 
 /* 모바일 숨김 */
@@ -271,7 +271,7 @@
 /* 섹션3 ############# */
 #section3 {
     position: relative;
-    height: 120vh;
+    height: 180vh;
     /* 스크롤구간 */
     color: var(--color-white);
 }
@@ -297,7 +297,10 @@
 
 #section3 .text_wrap {
     text-align: center;
-    padding: 200px 0 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 400px 0 100px;
     z-index: 10;
 }
 
@@ -315,7 +318,7 @@
 
 #section3 .video_wrap .video_container iframe {
     width: 100%;
-    height: 100%;
+    height: 300%;
     object-fit: cover;
 }
 
@@ -356,7 +359,7 @@
 #section4 .text_wrap .title_wrap .title {
     display: flex;
     flex-direction: column;
-    gap: 15px; 
+    gap: 15px;
     margin-bottom: 40px;
 }
 
@@ -382,6 +385,7 @@
     height: 2500px;
     background: url('../img/section5_bg.png') center / cover no-repeat;
     padding: 100px 0;
+    margin: 100px 0;
 }
 
 #section5 .inner {
@@ -436,12 +440,145 @@
 #section5 .scrollX .img-wrap .img .img-label strong {
     font-size: 24px;
 }
+
 #section5 .scrollX .img-wrap .img .img-label p {
     font-size: 18px;
     font-weight: 500;
-    line-height: auto;
+    line-height: 100%;
 }
 
 #section5 .scrollX .img-wrap .img img {
     width: 100%;
+}
+
+/* 섹션6 ############# */
+#section6 {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(248, 230, 201, 0.4);
+    margin: 100px 0;
+    display: flex;
+    align-items: center;
+}
+
+#section6 .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+#section6 .location {
+    width: 49.17%;
+}
+
+#section6 .location p {
+    font-size: 26px;
+    line-height: 100%;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#section6 .ask {
+    width: 49.17%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#section6 .ask .card {
+    width: 100%;
+    position: relative;
+}
+
+#section6 .ask .card .text-1 {
+    width: 104px;
+    position: absolute;
+    top: 67px;
+    left: 109px;
+}
+
+#section6 .ask .card .text-2 {
+    width: 129px;
+    position: absolute;
+    bottom: 51px;
+    right: 100px;
+}
+
+#section6 .ask .card>img {
+    width: 100%;
+    display: block;
+}
+
+#section6 .card .card_album {
+    width: 312px;
+    height: 426px;
+}
+
+#section6 .card .card_album .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+#section6 .card .card_album .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#section6 .ask .btn_wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    width: 100%;
+}
+
+#section6 .ask .btn_wrap .ask_btn {
+    flex: 1;
+    padding: 30px;
+    background-color: var(--color-text);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#section6 .ask .btn_wrap .ask_btn.call:hover {}
+
+#section6 .ask .btn_wrap .ask_btn.kakao:hover {}
+
+#section6 .ask .btn_wrap .ask_btn .way {
+    display: flex;
+    justify-content: space-between;
+}
+
+#section6 .ask .btn_wrap .ask_btn .way .method {
+    color: #79CECA;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#section6 .ask .btn_wrap .ask_btn .way .method h4 {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+#section6 .ask .btn_wrap .ask_btn .way .method strong {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#section6 .ask .btn_wrap .ask_btn .way img {
+    width: 67px;
+    display: block;
+}
+
+#section6 .ask .btn_wrap .ask_btn p {
+    font-size: 16px;
+    color: var(--color-white);
+    line-height: 150%;
 }
