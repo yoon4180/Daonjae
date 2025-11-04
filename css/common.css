@@ -108,8 +108,12 @@ p {
 }
 
 .header {
+    width: 100%;
     font-family: var(--font-sub);
-    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
     top: 70px;
     left: 50%;
     transform: translateX(-50%);
@@ -121,11 +125,12 @@ p {
     top: 30px;
 }
 
-/* .logo {
+/* 로고 위치 수정 */
+.logo {
     height: 50px;
-    position: relative;
-    top: 70px;
-    left: 0;
+    position: absolute;
+    top: 0;
+    left: 40px;
     z-index: 999;
 }
 
@@ -137,7 +142,7 @@ p {
 .logo a img {
     display: block;
     height: 100%;
-} */
+}
 
 .nav.pc {
     width: 604px;
@@ -203,6 +208,70 @@ p {
     color: var(--color-point-text);
 }
 
+/* 고정 버튼 ############# */
+.fixed_btn {
+    position: fixed;
+    right: 40px;
+    bottom: 50px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.fixed_btn img {
+    display: block;
+    width: 35px;
+}
+
+.fixed_btn .btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.fixed_btn .btn.main {
+    background-color: var(--color-point);
+}
+
+.fixed_btn .btn.top {
+    background-color: var(--color-white);
+}
+
+.fixed_btn .btn.kakao {
+    background-color: #EBC83A;
+}
+
+.fixed_btn .sub_btns {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    position: absolute;
+    bottom: 60px;
+}
+
+.fixed_btn .sub_btns .btn {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.fixed_btn.active .sub_btns .btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fixed_btn.active .btn.main {
+    transform: rotate(45deg);
+}
+
+
 /* 푸터 ############# */
 .footer {
     font-family: var(--font-sub);
@@ -210,6 +279,7 @@ p {
     background-color: #55422E;
     font-size: 16px;
 }
+
 .footer .inner {
     width: 88.54%;
     margin: 0 auto;

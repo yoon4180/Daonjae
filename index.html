@@ -165,6 +165,14 @@
                 }
             );
 
+            // 고정 버튼 상호작용
+            $('.fixed_btn .btn.main').on('click', function () {
+                $('.fixed_btn').toggleClass('active');
+            });
+
+            $('.fixed_btn .btn.top').on('click', function () {
+                $('html, body').animate({ scrollTop: 0 }, 600);
+            });
         }
     </script>
 </head>
@@ -180,6 +188,11 @@
         </div><!-- event-banner -->
 
         <header class="header">
+            <!-- 로고 추가 -->
+            <h1 class="logo">
+                <a href="#"><img src="img/daonjae_logo.png" alt="다온재 로고"></a>
+            </h1><!-- logo -->
+
             <nav class="nav pc">
                 <ul class="gnb">
                     <li>
@@ -358,10 +371,10 @@
                     </div><!-- image_wrap -->
 
                     <div class="list">
-                        <!-- <div class="title" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="line"></div>
+                        <div class="title" data-aos="fade-up" data-aos-duration="1000">
+                            <!-- <div class="line"></div> -->
                             <h3>“다온재”를 하는 이유</h3>
-                        </div> 수정 필요 -->
+                        </div>
 
                         <div class="point point1 on">
                             <img src="img/flower1.png" alt="포인트 배경 일러" class="bg_deco p1">
@@ -421,9 +434,10 @@
                             한복 사진이 나아가야 할 길을 묵직하게 이어갑니다.</p>
                     </div><!-- text_wrap -->
                     <div class="video_container">
-                        <iframe src="https://www.youtube.com/embed/T5rF0OOakQk?si=mJL4W1ViKZZM2aq7"
+                        <iframe src="https://www.youtube.com/embed/T5rF0OOakQk?si=mJL4W1ViKZZM2aq7&autoplay=1&mute=1"
                             title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media"
-                            allowfullscreen></iframe>
+                            allowfullscreen>
+                        </iframe>
                     </div><!-- video_container -->
                 </div><!-- video_wrap -->
             </section><!-- #section3 -->
@@ -573,6 +587,21 @@
             </section><!-- #section6 -->
         </main><!-- main -->
 
+
+        <div class="fixed_btn">
+            <button class="btn main">
+                <img src="img/icon_plus_main.png" alt="고정 버튼">
+            </button><!-- btn_main -->
+
+            <div class="sub_btns">
+                <button class="btn top">
+                    <img src="img/icon_up_main.png" alt="탑 버튼">
+                </button><!-- btn.top -->
+                <button class="btn kakao">
+                    <a href="#"><img src="img/icon_kakao_main.png" alt="카톡 문의 버튼"></a>
+                </button><!-- btn.kakao -->
+            </div><!-- sub_btns -->
+        </div><!-- fixed_btn -->
 
         <footer class="footer">
             <div class="inner">
