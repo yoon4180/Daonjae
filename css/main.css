@@ -39,7 +39,7 @@
     position: relative;
 }
 
-#section1 > img {
+#section1>img {
     width: 100%;
     height: 100%;
     display: block;
@@ -97,7 +97,7 @@
 }
 
 #section1 .inner .main_content .main_text .main_btn button p {
-    font-size: 22px;
+    font-size: clamp(18px, 1.15vw, 22px);
     font-weight: 500;
     line-height: 100%;
 }
@@ -115,7 +115,7 @@
 }
 
 #section1 .inner .review_list .review {
-    width: 720px;
+    width: 100%;
     position: relative;
     font-family: var(--font-sub);
     color: var(--color-black);
@@ -140,10 +140,11 @@
 
 #section1 .inner .review_list .review p {
     position: absolute;
-    top: 50px;
+    top: calc(100% / 3 - 1.4vw);
     left: 50%;
     transform: translateX(-50%);
     white-space: nowrap;
+    font-size: 1.4vw;
 }
 
 /* 섹션2 ############# */
@@ -342,12 +343,13 @@
 }
 
 #section4 .text_wrap img {
-    width: 730px;
+    width: 110%;
+    max-width: 730px;
     display: block;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.05);
+    transform: translate(-50%, -50%);
     z-index: -1;
 }
 

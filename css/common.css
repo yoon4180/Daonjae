@@ -14,13 +14,13 @@
     --font-main: "Noto Serif KR", serif;
     --font-sub: "Noto Sans KR";
 
-    --h1-size: 45px;
+    --h1-size: clamp(2rem, 3.3vw, 50px);
     --h1-weight: 700;
-    --h1-line: 100px;
+    --h1-line: 222%;
 
-    --body1-size: 22px;
+    --body1-size: clamp(18px, 1.15vw, 22px);
     --body1-weight: 600;
-    --body1-line: 48px;
+    --body1-line: 218%;
 
     /* 모바일용 */
     --h1-size-m: 24px;
@@ -39,6 +39,7 @@ h2 {
     font-size: var(--h1-size);
     font-weight: var(--h1-weight);
     line-height: var(--h1-line);
+    word-break: keep-all;
 }
 
 p {
