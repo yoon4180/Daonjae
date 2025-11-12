@@ -8,14 +8,12 @@
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- AOS css -->
-    <link href="lib/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="lib/aos.css">
     <link rel="stylesheet" href="css/common.css">
-
+    <link rel="stylesheet" href="css/main.css">
+    
     <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="lib/jquery-3.7.1.min.js"></script>
     <!-- AOS js -->
     <script src="lib/aos.js"></script>
     <!-- Swiper JS -->
@@ -36,7 +34,9 @@
             });
 
             //헤더 2차 메뉴
-            $('.depth-01').on('click', function () {
+            $('.depth-01').on('click', function (e) {
+                e.preventDefault();
+
                 if ($(this).siblings('.depth-02').css('display') == 'none') {
                     $('.depth-01').siblings('.depth-02').slideUp();
                     $('.depth-01').removeClass('active');
@@ -541,16 +541,16 @@
                             <div class="swiper card_album">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img src="img/card1.jpg" alt="카드 이미지">
+                                        <img src="img/card1.jpg" alt="카드 이미지 1">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="img/card2.jpg" alt="카드 이미지">
+                                        <img src="img/card2.jpg" alt="카드 이미지 2">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="img/card3.jpg" alt="카드 이미지">
+                                        <img src="img/card3.jpg" alt="카드 이미지 3">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img src="img/main2.jpg" alt="카드 이미지">
+                                        <img src="img/main2.jpg" alt="카드 이미지 4">
                                     </div>
                                 </div><!-- swiper-wrapper -->
                             </div><!-- card_album -->
