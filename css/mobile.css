@@ -1,0 +1,42 @@
+@media screen and (max-width: 1024px) {
+    #section1 {
+        height: auto;
+        padding: 80px 0;
+        background: url('../img/section1_bg.png') center/cover no-repeat;
+        position: relative;
+    }
+
+    #section1 > img {
+        display: none;
+    }
+    #section1 .inner {
+        flex-direction: column-reverse;
+        gap: 100px;
+        position: static;
+        transform: none;        
+    }
+
+    #section1 .inner .main_content {
+        width: 60%;
+    }
+
+    #section1 .inner .review_list {
+        width: 60%;
+    }
+
+    #section1 .inner .review_list .review:nth-child(even) {
+        padding-left: 80px;
+    }
+
+    #section1 .inner .review_list .review:nth-child(even) p {
+        padding-left: 80px;
+    }
+
+    #section1 .inner .review_list .review:nth-child(odd) {
+        padding-right: 80px;
+    }
+
+    #section1 .inner .review_list .review:nth-child(odd) p {
+        padding-right: 80px;
+    }
+}
