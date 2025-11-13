@@ -105,7 +105,7 @@ window.onload = () => {
 
 
     // 섹션5 가로스크롤
-    let section01Top = document.querySelector('#section5').offsetTop;
+    /* let section01Top = document.querySelector('#section5').offsetTop;
     console.log(section01Top)
     window.addEventListener('scroll', () => {
         let transformX = -1 / 15 * window.scrollY + section01Top / 15
@@ -115,7 +115,27 @@ window.onload = () => {
         } else if (transformX < 0) {
             document.querySelector('.scrollX').style.transform = `translateX(${transformX}vw)`
         }
+    }); */
+    const scrollElement = document.querySelector('.scrollX');
+    const section5 = document.querySelector('#section5');
+    let section01Top = section5.offsetTop;
+
+    // 이동 최대치 (ex: -200vw → -2 * window.innerWidth)
+    let maxMove = -2 * window.innerWidth;
+
+    window.addEventListener('scroll', () => {
+        let transformX = (-1 / 15) * window.scrollY + (section01Top / 15);
+
+        // vw 대신 px 단위 사용
+        let movePx = transformX * (window.innerWidth / 100);
+
+        if (movePx < maxMove) {
+            scrollElement.style.transform = `translateX(${maxMove}px)`;
+        } else if (movePx < 0) {
+            scrollElement.style.transform = `translateX(${movePx}px)`;
+        }
     });
+
 
     //섹션6 카드 슬라이드
     var swiper = new Swiper(".card_album", {

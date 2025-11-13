@@ -1,3 +1,28 @@
+/* 1500 이하에서 섹션6 세로정렬 */
+@media screen and (max-width: 1500px) {
+    #section5 {
+        height: 3000px;
+        padding: 0 0 100px;
+    }
+    #section6 .inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    #section6 .location {
+        width: 70%;
+    }
+
+    #section6 .ask {
+        width: 70%;
+    }
+
+    #section6 .root_daum_roughmap {
+        aspect-ratio: 5 / 3
+    }
+}
+
 @media screen and (max-width: 1024px) {
     #section1 {
         height: auto;
@@ -6,14 +31,15 @@
         position: relative;
     }
 
-    #section1 > img {
+    #section1>img {
         display: none;
     }
+
     #section1 .inner {
         flex-direction: column-reverse;
         gap: 100px;
         position: static;
-        transform: none;        
+        transform: none;
     }
 
     #section1 .inner .main_content {

@@ -385,7 +385,7 @@
 /* 섹션5 ############# */
 #section5 {
     width: 100%;
-    height: 2500px;
+    height: 2300px;
     background: url('../img/section5_bg.png') center / cover no-repeat;
     padding: 100px 0;
     margin: 100px 0;
@@ -471,7 +471,7 @@
 }
 
 #section6 .location {
-    width: 49.17%;
+    width: 42%;
 }
 
 #section6 .location p {
@@ -482,7 +482,7 @@
 }
 
 #section6 .ask {
-    width: 49.17%;
+    width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -606,7 +606,6 @@
 /* 섹션6 지도 반응형 고정 */
 #section6 .root_daum_roughmap {
   width: 100% !important;
-  
   aspect-ratio: 13 / 12;
 }
 
