@@ -14,11 +14,11 @@
     --font-main: "Noto Serif KR", serif;
     --font-sub: "Noto Sans KR";
 
-    --h1-size: clamp(2rem, 3.3vw, 50px);
+    --h1-size: clamp(2rem, 4vw, 50px);
     --h1-weight: 700;
     --h1-line: 222%;
 
-    --body1-size: clamp(18px, 1.15vw, 22px);
+    --body1-size: clamp(18px, 2vw, 22px);
     --body1-weight: 600;
     --body1-line: 218%;
 

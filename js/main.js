@@ -90,32 +90,30 @@ window.onload = () => {
     const section = document.querySelector("#section3");
 
     window.addEventListener("scroll", () => {
+        // 1024px 이하에서는 효과 비활성화 + width 고정
+        if (window.innerWidth <= 1024) {
+            videoContainer.style.width = "80%";
+            return;
+        }
+
         const rect = section.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
-        // section이 화면에 보일 때만 계산
         if (rect.top < windowHeight && rect.bottom > 0) {
-            // progress 0 ~ 1
+            // progress: 0 ~ 1
             let progress = 1 - (rect.bottom / (rect.height + windowHeight));
-            // scale 1 ~ 1.5
-            let scale = 1 + progress * 0.5;
-            videoContainer.style.transform = `scale(${scale})`;
+            progress = Math.max(0, Math.min(progress, 1));
+
+            // width: 30% → 60%
+            let widthPercent = 30 + (progress * 30);
+            videoContainer.style.width = widthPercent + "%";
         }
     });
 
 
-    // 섹션5 가로스크롤
-    /* let section01Top = document.querySelector('#section5').offsetTop;
-    console.log(section01Top)
-    window.addEventListener('scroll', () => {
-        let transformX = -1 / 15 * window.scrollY + section01Top / 15
 
-        if (transformX < -200) {
-            document.querySelector('.scrollX').style.transform = `translateX(-200vw)`
-        } else if (transformX < 0) {
-            document.querySelector('.scrollX').style.transform = `translateX(${transformX}vw)`
-        }
-    }); */
+
+    // 섹션5 가로스크롤
     const scrollElement = document.querySelector('.scrollX');
     const section5 = document.querySelector('#section5');
     let section01Top = section5.offsetTop;
